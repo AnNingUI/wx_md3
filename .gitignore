@@ -1,0 +1,9 @@
+build/
+builddir/
+buildWin/
+dev-docs/
+.vscode/
+.claude/
+.cache/
+*.md
+compile_commands.json
