@@ -30,7 +30,9 @@ md3wx_sources = [
   'src/MD3Layout.cpp',
   'src/MD3Checkbox.cpp',
   'src/MD3RadioButton.cpp',
-  'src/MD3Switch.cpp'
+  'src/MD3Switch.cpp',
+  'src/MD3Card.cpp',
+  'src/MD3Image.cpp'
 ]
 
 # Create library
@@ -51,6 +53,8 @@ headers = [
   'include/wx_md3/components/MD3Checkbox.h',
   'include/wx_md3/components/MD3RadioButton.h',
   'include/wx_md3/components/MD3Switch.h',
+  'include/wx_md3/components/MD3Card.h',
+  'include/wx_md3/components/MD3Image.h',
 ]
 
 install_headers(headers, subdir: 'md3')
@@ -114,6 +118,20 @@ if build_examples
   )
 
   switch_demo = executable('switch_demo', 'examples/e_md_switch.cpp',
+    link_with: [md3wx_lib],
+    dependencies: [wxwidgets_dep],
+    include_directories: include_directories('include', '.'),
+    install: false
+  )
+
+  card_demo = executable('card_demo', 'examples/e_md_card.cpp',
+    link_with: [md3wx_lib],
+    dependencies: [wxwidgets_dep],
+    include_directories: include_directories('include', '.'),
+    install: false
+  )
+
+  image_demo = executable('image_demo', 'examples/e_md_image.cpp',
     link_with: [md3wx_lib],
     dependencies: [wxwidgets_dep],
     include_directories: include_directories('include', '.'),
